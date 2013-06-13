@@ -1,0 +1,20 @@
+<form action="<%= teams_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+         value="form_authenticity_token">
+  <label for="team_name">Name</label>
+  <input type="text" name="team[name]">
+
+  <h3>Select Team Members</h3>
+  <% @users.each do |user| %>
+    <label for="team_member_<%= user.id %>"><%= user.name %>
+    <input type="checkbox"
+           name="team[teammate_ids][]"
+           value="<%= user.id %>"
+           id="team_member_<%= user.id %>">
+           <br>
+  <% end %>
+  <br>
+  <input type="submit" value="Create Team">
+
+</form>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authorize_user, :only => :index
   def index
     @teams = current_user.teams
   end
