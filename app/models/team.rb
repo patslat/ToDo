@@ -5,4 +5,5 @@ class Team < ActiveRecord::Base
   has_many :teammates,
            :through => :team_memberships,
            :source => :member
+  has_many :projects
 end

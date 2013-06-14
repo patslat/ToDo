@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
 <p>
@@ -16,7 +17,7 @@
     <%= link_to "Sign Up", new_user_url %>
   <% end %>
 </p>
-
+<script src="js/bootstrap.min.js"></script>
 <%= yield %>
 
 </body>

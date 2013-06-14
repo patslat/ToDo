@@ -1,0 +1,11 @@
+<h1>Team: <%= link_to @team.name,
+              team_url(@team) %></h1>
+<h2>Project: <%= link_to @project.title,
+                 team_project_items_url(@team, @project) %></h2>
+<p>
+Title: <%= @item.title %>
+<br>
+Description: <%= @item.description %>
+<br>
+Completed? <%= @item.completion ? "Yes" : "Not yet" %>
+</p>

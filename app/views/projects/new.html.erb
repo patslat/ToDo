@@ -1,8 +1,15 @@
-<form action="<%= new_team_project_url(@team) %>" method="post">
+<form action="<%= projects_url %>" method="post">
   <input type="hidden"
          name="authenticity_token"
          value="form_authenticity_token">
 
+  <label for="project_team">Team:</label>
+  <select name="project[team_id]" id="project_team">
+  <% @teams.each do |team| %>
+  <option value="<%= team.id %>"><%= team.name %></option>
+  <% end %>
+  </select>
+  <br>
   <label for="project_title">Title:</label>
   <input type="text" name="project[title]" id="project_title">
 
@@ -10,8 +17,6 @@
   <input type="text" name="project[description]" id="project_description">
 
   <input type="hidden" name="project[completion]" value="false">
-
-  <input type="submit" value="Submit Project">
 
   <h3>Items</h3>
   <% @project.items.each_with_index do |item, i| %>
@@ -29,8 +34,9 @@
   <input type="hidden"
          name="project[items_attributes][<%= i %>][completion]"
          value="false">
+  <br>
   <% end %>
 
-  <input type="submit" value="Submit Item">
+  <input type="submit" value="Submit Project">
 
 </form>
